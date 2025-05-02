@@ -4,6 +4,7 @@ from PIL import Image
 import io
 import platform
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -42,4 +43,5 @@ def remove_background():
         return jsonify({'error': f'Processing failed: {str(e)}'}), 500
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    port = int(os.environ.get("PORT", 5000))  # Read PORT from environment
+    app.run(host='0.0.0.0', port=port)
