@@ -5,6 +5,7 @@ import io
 import platform
 from flask_cors import CORS
 import os
+print(f"PORT environment variable: {os.environ.get('PORT')}")
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
